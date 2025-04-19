@@ -100,19 +100,6 @@ python app.py
 ```
 
 ---
-
-## Dependency Files in Version Control
-
-You should commit `package.json` and `package-lock.json` for consistent installs.
-
-```bash
-git add package.json package-lock.json
-git commit -m "Add project dependencies"
-git push origin main
-```
-
----
-
 ## Application Features
 
 ### Student Module
