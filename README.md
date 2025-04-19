@@ -1,6 +1,16 @@
 # Internaway
 
-Internaway is a full-stack web application that connects students with internship opportunities. It uses a React frontend, a Node.js backend server, and a Python FastAPI service for tasks such as verification and processing.
+Internaway is a full-stack web application that simplifies the management of student internships. It enables students to upload and manage internship documents while allowing coordinators to verify details and maintain centralized records efficiently.
+
+---
+
+## Tech Stack
+
+- **Frontend**: React.js
+- **Backend (Student & Admin APIs)**: Node.js with Express
+- **Backend (Verification & Email Services)**: Python with FastAPI
+- **Database**: MongoDB
+- **External Integrations**: Google Drive API, Google Sheets API, OCR API (OCR.space)
 
 ---
 
@@ -43,82 +53,49 @@ git clone https://github.com/your-username/internaway.git
 cd internaway
 ```
 
----
-
 ### 2. Backend Setup
 
 #### a. Node.js Server
 
-Navigate to the backend directory and install the required Node.js dependencies:
-
 ```bash
 cd backend
 npm install
-```
-
-Start the Node.js server:
-
-```bash
 node server.js
 ```
 
-Ensure that the backend contains:
+Ensure:
 - `module/User.js` – defines the user schema
 - `routes/` – contains route files
 - `services/` – contains service logic
 
 #### b. FastAPI Service
 
-Navigate to the FastAPI service directory:
-
 ```bash
 cd backend/api
-```
-
-Start the FastAPI server:
-
-```bash
 uvicorn verify:app --reload
 ```
 
----
-
 ### 3. Frontend Setup
-
-Navigate to the frontend directory and install the React dependencies:
 
 ```bash
 cd frontend
 npm install
-```
-
-Start the development server:
-
-```bash
 npm start
 ```
 
-Your React components should be located in `src/pages`, and CSS files in `src/styles`.
-
----
+Components: `src/pages` | Styles: `src/styles`
 
 ### 4. Python Directory
 
-The `python/` directory is used for a standalone FastAPI service or other Python-based utilities. It must include the following files:
-
+Contains independent services:
 - `.env`
 - `app.py`
 - `requirements.txt`
 
-Install the required Python packages using:
+Install dependencies and run:
 
 ```bash
 pip install -r requirements.txt
-```
-
-Run the service with:
-
-```bash
 python app.py
 ```
 
@@ -126,12 +103,35 @@ python app.py
 
 ## Dependency Files in Version Control
 
-You should commit `package.json` and `package-lock.json` to your repository. These files ensure consistent package versions across different environments.
-
-To include them:
+You should commit `package.json` and `package-lock.json` for consistent installs.
 
 ```bash
 git add package.json package-lock.json
 git commit -m "Add project dependencies"
 git push origin main
 ```
+
+---
+
+## Application Features
+
+### Student Module
+
+- **Home Page**: Access core modules.
+- **Profile Page**: View personal and internship info (static fields only).
+- **Edit Details Page**: Update internship details like company, period, stipend, etc.
+- **Manage Files Page**: Upload, replace, delete, and download documents with consistent naming.
+
+### Coordinator Module
+
+- **Home Page**: View all batches and year-wise data.
+- **Internship Details Page**: 
+  - View pending and rejected submissions
+  - Send emails
+  - Search and filter internship data
+- **Student Details Page**: 
+  - View student records and files
+  - Trigger OCR-based verification
+  - Update status and remarks to Google Sheets
+
+### Contributors
